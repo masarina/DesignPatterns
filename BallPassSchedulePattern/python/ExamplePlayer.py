@@ -1,5 +1,6 @@
-from SuperPlayer import SuperPlayer 
-import datetime
+import os, sys
+sys.path.append("../..")
+from Players_CommonPlayers.SuperPlayerDir.SuperPlayer import SuperPlayer 
 
 class ExamplePlayer(SuperPlayer):
     def __init__(self):
@@ -11,12 +12,21 @@ class ExamplePlayer(SuperPlayer):
 
     def main(self):
         """
-        testですね。いぐざんぷるです。
+        このメソッド実行直前に、
+        このスーパークラスのメンバ変数
+        one_time_world_instanceに、
+        最新のworldインスタンスを代入しています。
+        
+        このメソッド終了後、
+        メインで使用しているworld_instanceを
+        このスーパークラスのメンバ変数
+        one_time_world_instanceで上書きし、
+        更新しています。
+        
+        → つまり、このメソッド内で
+        self.one_time_world_instanceを上書きすると、
+        その内容が、反映されます。
         """
-        # SuperPlayerのメンバ変数。
-        # このmain実行する直前に
-        # SuperPlayerでself.one_time_world_instance に
-        # 最新のworldを代入してあります。
-        print("return_my_nameが実行されました。")
-
+        
+        print(f"{return_my_name}が実行されました。")
         return "Completed"
