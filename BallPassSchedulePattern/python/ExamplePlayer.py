@@ -29,4 +29,9 @@ class ExamplePlayer(SuperPlayer):
         """
         
         print(f"{return_my_name}が実行されました。")
+
+        # データは自身のイニシャライザのメンバ変数で保持、
+        # またはjsonなどに出力した場合、そのパスを保持
+        self.one_time_world_instance.ExamplePlayer = self
+
         return "Completed"
